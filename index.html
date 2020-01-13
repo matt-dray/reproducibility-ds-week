@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Reproduciblity, DfE Data Science Week 2020</title>
+    <meta charset="utf-8" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/custom.css" type="text/css" />
+    <link rel="stylesheet" href="styles/custom-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle, inverse
+
+# You Won't Believe These Three Crazy Tips To Improve Reproducibility!
+
+<i class="fab  fa-twitter "></i> mattdray
+<i class="fab  fa-github "></i> matt-dray
+<i class="fas  fa-globe "></i> rostrum.blog 
+
+DfE Data Science Week, 2020-01-22
+
+---
+class: center, middle
+
+&gt;Matt Dray from Cabinet Office will wow you with a small, medium and large thing you could (should!) do right now to make your work more reproducible. Why? Improving reproducibility can help you automate your work, speed things up, reduce errors and improve trust. The talk will focus on R, but the ideas are transferable.
+
+---
+class: middle
+
+tl;dr
+
+--
+
+* make everything reproducible
+
+--
+
+* unless you hate everyone
+
+--
+
+* especially yourself
+
+---
+class: inverse, middle, center
+
+'Reproducible'
+
+---
+class: middle
+
+* Can I do it on a different machine?
+
+* In the distant future?
+
+* Do I know what I'm doing if I'm not you?
+
+---
+class: middle, center
+
+![](img/turing-way-reproducibility.jpg)
+
+From [The Turing Way](https://the-turing-way.netlify.com/introduction/introduction) by The Alan Turing Institute
+
+???
+* I think we care about reproducing outputs we've aready created (to prove that we can relaibly recreate the outcome) and updating with fresh data (like the next quarter's data)
+
+---
+class: middle, center
+
+&lt;img src='img/rap_v4_hex.png' width='50%'&gt;
+
+[Reproducible Analytical Pipelines](https://ukgovdatascience.github.io/rap-website/) (RAP)
+
+???
+* There's a grassroots movement to enact all this stuff in government already
+* #rap-collaboration on govdatascience.slack.com
+* DfE are already active: speak to your RAP Champion
+
+---
+class: middle
+
+Three things:
+
+--
+
+1. Code everything
+
+--
+
+2. Including your reports
+
+--
+
+3. And your workflow
+
+---
+class: inverse, middle
+
+1. Code everything
+
+---
+class: middle
+
+Projects and packages
+
+???
+* Reconsider disparate, distributed files and data
+* Reconsider Excel
+* Put everything related to a project in one place (e.g. an RStudio Project)
+* Or formalise parts of it for reuse (e.g. in a package) 
+* Both approaches encourage documentation so colleagues and future you understand what's happening
+* Put thes things under version control (as per David's talk on Git and GitHub)!
+
+---
+class: inverse, middle
+
+1. Code everything
+
+2. Including your reports
+
+---
+class: middle
+
+R Markdown
+
+???
+* Insert outputs from code alongside text
+* From code chunks or inline
+* New data? No problem. Re-run the code and the correct outputs are generated.
+
+---
+background-image: url(img/r4ds-diamond-sizes-report.png)
+background-size: contain
+
+---
+class: inverse, middle
+
+3\. And your workflow
+
+---
+class: middle
+
+{drake}
+
+???
+* You can't remember all the parts of your large analysis and how they fit together
+* Do you have to re-run everything from scratch if you change something about the analysis?
+* {drake} is a brain that remembers all the relationships and the order in which things need to be run
+* It only re-runs what needs to be re-run, saving you time and brainpower
+
+---
+class: middle
+
+Further reading
+
+* [RAP website](https://ukgovdatascience.github.io/rap-website/) by you (?)
+* [The Turing Way](https://the-turing-way.netlify.com/introduction/introduction) by The Alan Turing Institute
+* [R Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) by RStudio
+* [Ode to {here}](https://github.com/jennybc/here_here) by Jenny Bryan
+* [R packages](https://r-mageddon.netlify.com/post/writing-an-r-package-from-scratch/) by Tomas Westlake
+* [R Markdown book](https://bookdown.org/yihui/rmarkdown/) by Yihui Xie, JJ Allaire &amp; Garrett Grolemund
+* {drake} [website]() and [book]() by Will Landau
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
