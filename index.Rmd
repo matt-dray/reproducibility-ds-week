@@ -14,47 +14,49 @@ class: center, middle, inverse
 
 # You Won't Believe These Three Crazy Tips To Improve Reproducibility!
 
+<br>
+
 `r icon::fa('twitter')` mattdray
 `r icon::fa('github')` matt-dray
 `r icon::fa('globe')` rostrum.blog 
 
 DfE Data Science Week, 2020-01-22
 
----
-class: center, middle
-
->Matt Dray from Cabinet Office will wow you with a small, medium and large thing you could (should!) do right now to make your work more reproducible. Why? Improving reproducibility can help you automate your work, speed things up, reduce errors and improve trust. The talk will focus on R, but the ideas are transferable.
+???
+* Spoiler: you will believe them
+* And you probably are doing them already
+* But hopefully you'll hear about something new
 
 ---
 class: middle
 
 tl;dr
 
---
-
 * make everything reproducible
-
---
-
 * unless you hate everyone
-
---
-
 * especially yourself
 
 ---
 class: inverse, middle, center
 
-'Reproducible'
+'Reproducible'?
 
 ---
 class: middle
 
-* Can I do it on a different machine?
+Can I recreate what you did:
 
-* In the distant future?
+* from scratch?
+* on a different machine?
+* in the future?
+* without you present?
 
-* Do I know what I'm doing if I'm not you?
+???
+* We should know all the preparatory steps
+* Maybe I don't have the same packages, maybe I'm using another OS
+* Dependency changes break things
+* What if you leave the department?
+
 
 ---
 class: middle, center
@@ -65,6 +67,21 @@ From [The Turing Way](https://the-turing-way.netlify.com/introduction/introducti
 
 ???
 * I think we care about reproducing outputs we've aready created (to prove that we can relaibly recreate the outcome) and updating with fresh data (like the next quarter's data)
+
+---
+class: middle
+
+Whyyyyy?
+
+* automate your work
+* speed things up
+* reduce errors
+* improve trust
+
+???
+* build it from start to finish at any time
+* know exactly what is happening in your workflow
+* other can redo it themselves
 
 ---
 class: middle, center
@@ -79,54 +96,77 @@ class: middle, center
 * DfE are already active: speak to your RAP Champion
 
 ---
+class: middle, inverse
+
+Three things
+
+---
 class: middle
 
-Three things:
-
---
-
 1. Code everything
-
---
-
 2. Including your reports
+3. And even your workflow
 
---
-
-3. And your workflow
+???
+* These are very broad -- what do they mean?
+* Let's go through one by one
+* I'll be focuing on R, but I think these points are transferable
 
 ---
 class: inverse, middle
 
-1. Code everything
-
----
-class: middle
-
-Projects and packages
+1. Code everything 
 
 ???
 * Reconsider disparate, distributed files and data
 * Reconsider Excel
-* Put everything related to a project in one place (e.g. an RStudio Project)
-* Or formalise parts of it for reuse (e.g. in a package) 
-* Both approaches encourage documentation so colleagues and future you understand what's happening
-* Put thes things under version control (as per David's talk on Git and GitHub)!
+* Pointing and clicking can go wrong
+
+---
+class: middle
+
+Use [R Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
+
+* code, data and docs in one place
+* use [{renv}](https://rstudio.github.io/renv/articles/renv.html) for [dependency management](https://ukgovdatascience.github.io/rap-website/article-dependency-and-reproducibility.html)
+* also try [{here}](https://here.r-lib.org/) for [relative file paths](https://github.com/jennybc/here_here)
+* use [Git and maybe GitHub](https://speakerdeck.com/alicebartlett/git-for-humans) for version control 
+
+???
+* Code _and_ data _and_ documentation in one place
+* You can easily pass the Project folder as a single unit
+* Filepaths are relative to the the project, not your machine
+
+---
+class: middle
+
+Write a package
+
+* don't repeat yourself
+* try the [{usethis} workflow](https://www.hvitfeldt.me/blog/usethis-workflow-for-package-development/) by Emil Hvitfeldt
+* check out the [book](http://r-pkgs.had.co.nz/) by Hadley Wickham
+
+???
+* Write, test and debug your frequently-used functions just once
+* The whole organisation and beyond can use the same functions
+* Put this under version control so you can always refer to older versions of your package
 
 ---
 class: inverse, middle
 
-1. Code everything
-
+1. Code everything &#10004;
 2. Including your reports
 
 ---
 class: middle
 
-R Markdown
+Use [R Markdown](https://rmarkdown.rstudio.com/)
+
+* put code in your reports
+* updates automatically after changes
+* read the [R Markdown book](https://bookdown.org/yihui/rmarkdown/) 
 
 ???
-* Insert outputs from code alongside text
 * From code chunks or inline
 * New data? No problem. Re-run the code and the correct outputs are generated.
 
@@ -137,28 +177,21 @@ background-size: contain
 ---
 class: inverse, middle
 
-3\. And your workflow
+1. Code everything &#10004;
+2. Including your reports &#10004;
+3. And even your workflow
 
 ---
 class: middle
 
-{drake}
+Use {drake}
+
+* remembers your workflow
+* re-runs only what needs to be re-run
+* see the [website](https://docs.ropensci.org/drake/) and [user manual](https://books.ropensci.org/drake/)
 
 ???
 * You can't remember all the parts of your large analysis and how they fit together
 * Do you have to re-run everything from scratch if you change something about the analysis?
 * {drake} is a brain that remembers all the relationships and the order in which things need to be run
 * It only re-runs what needs to be re-run, saving you time and brainpower
-
----
-class: middle
-
-Further reading
-
-* [RAP website](https://ukgovdatascience.github.io/rap-website/) by you (?)
-* [The Turing Way](https://the-turing-way.netlify.com/introduction/introduction) by The Alan Turing Institute
-* [R Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) by RStudio
-* [Ode to {here}](https://github.com/jennybc/here_here) by Jenny Bryan
-* [R packages](https://r-mageddon.netlify.com/post/writing-an-r-package-from-scratch/) by Tomas Westlake
-* [R Markdown book](https://bookdown.org/yihui/rmarkdown/) by Yihui Xie, JJ Allaire & Garrett Grolemund
-* {drake} [website]() and [book]() by Will Landau
