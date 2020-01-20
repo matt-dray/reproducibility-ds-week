@@ -104,19 +104,19 @@ Three things
 ---
 class: middle
 
-1. Code everything
-2. Including your reports
-3. And even your workflow
+1. Encode and centralise the thing
+2. Write reports with code
+3. Use a workflow manager
 
 ???
 * These are very broad -- what do they mean?
 * Let's go through one by one
-* I'll be focuing on R, but I think these points are transferable
+* I'll be focusing on R, but I think the points are transferable and Python analogues are available
 
 ---
 class: inverse, middle
 
-1. Code everything 
+1. Encode and centralise
 
 ???
 * Reconsider disparate, distributed files and data
@@ -126,12 +126,15 @@ class: inverse, middle
 ---
 class: middle
 
+[horrible Excel examples]
+
+---
+class: middle
+
 Use [R Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
 
 * code, data and docs in one place
 * use [{renv}](https://rstudio.github.io/renv/articles/renv.html) for [dependency management](https://ukgovdatascience.github.io/rap-website/article-dependency-and-reproducibility.html)
-* also try [{here}](https://here.r-lib.org/) for [relative file paths](https://github.com/jennybc/here_here)
-* use [Git and maybe GitHub](https://speakerdeck.com/alicebartlett/git-for-humans) for version control 
 
 ???
 * Code _and_ data _and_ documentation in one place
@@ -141,7 +144,7 @@ Use [R Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-P
 ---
 class: middle
 
-Write a package
+Write packages
 
 * don't repeat yourself
 * try the [{usethis} workflow](https://www.hvitfeldt.me/blog/usethis-workflow-for-package-development/) by Emil Hvitfeldt
@@ -153,10 +156,18 @@ Write a package
 * Put this under version control so you can always refer to older versions of your package
 
 ---
+class: middle
+
+Consider:
+
+* [{here}](https://here.r-lib.org/) for [relative file paths](https://github.com/jennybc/here_here)
+* [Git and maybe GitHub](https://speakerdeck.com/alicebartlett/git-for-humans) for version control 
+
+---
 class: inverse, middle
 
-1. Code everything &amp;#10004;
-2. Including your reports
+1. Encode and centralise the thing &amp;#10004;
+2. Write reports with code
 
 ---
 class: middle
@@ -172,15 +183,21 @@ Use [R Markdown](https://rmarkdown.rstudio.com/)
 * New data? No problem. Re-run the code and the correct outputs are generated.
 
 ---
-background-image: url(img/r4ds-diamond-sizes-report.png)
-background-size: contain
+class: middle
+
+Use R Markdown for other outputs:
+
+* {xaringan}
+* {bookdown}
+* {blogdown}
+* {flexdashboard}
 
 ---
 class: inverse, middle
 
-1. Code everything &amp;#10004;
-2. Including your reports &amp;#10004;
-3. And even your workflow
+1. Encode and centralise the thing &amp;#10004;
+2. Write reports with code &amp;#10004;
+3. Use a workflow manager
 
 ---
 class: middle
