@@ -323,7 +323,7 @@ class: inverse, middle
 ---
 class: middle
 
-{drake} `r emo::ji("brain")`
+{drake} `r emo::ji("duck")`
 
 * makes your analysis pipeline reproducible
 * remembers your workflow
