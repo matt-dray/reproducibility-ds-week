@@ -409,6 +409,9 @@ plan
 ## 5 report   rmarkdown::render(knitr_in("report.Rmd"), output_file…
 ```
 
+---
+class: middle
+
 Make the plan to generate the targets
 
 ```{r eval=FALSE}
