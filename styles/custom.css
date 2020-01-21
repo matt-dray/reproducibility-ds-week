@@ -7,15 +7,15 @@
 }
 
 .remark-code {
-  background: #b1b4b6;
-  border-radius: 10px;
-  padding: 1px;
+  background: #add8e6;
+  padding: 5px;
+  font-size: 21px;
 }
 
 .remark-inline-code{
-  background: #b1b4b6;
-  border-radius: 10px;
-  padding: 1px;
+  background: #add8e6;
+  padding: 5px;
+  font-size: 21px;
 }
 
 .remark-slide-number {
@@ -41,7 +41,7 @@ a, a > code {
   padding-right: 4em;
   font-size: 90%;
 }
-.remark-code-line-highlighted     { background-color: #b1b4b6; }
+.remark-code-line-highlighted     { background-color: #FFFF00; }
 
 .inverse {
   background-color: #003078;
