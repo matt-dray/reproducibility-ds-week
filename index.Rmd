@@ -523,25 +523,23 @@ Also consider:
 ---
 class: middle
 
-Some things to read:
+Some things to look at:
 
-* [Reproducible Analytical Pipelines](https://ukgovdatascience.github.io/rap-website/) (RAP)
-* The #rap-collaboration channel [on Slack](https://govdatascience.slack.com)
+* [Reproducible Analytical Pipelines](https://ukgovdatascience.github.io/rap-website/) (RAP) and the #rap-collaboration channel [on Slack](https://govdatascience.slack.com)
 * [Putting the R into reproducible research](https://annakrystalli.me/talks/r-in-repro-research-dc.html#1) by Anna Krystalli
 * [The Turing Way](https://the-turing-way.netlify.com/introduction/introduction.html) by The Alan Turing Institute
 * [R for Reproducible Scientific Analysis](https://swcarpentry.github.io/r-novice-gapminder/) from Software Carpentry
 
-
 ---
 class: middle
 
-I've written about reproducibility:
+I've written about reproducibility-related things:
 
 * [Build an R package with {usethis}](https://www.rostrum.blog/2019/11/01/usethis/)
 * [Git going: Git and GitHub](https://www.rostrum.blog/2019/10/21/git-github/)
 * [Can {drake} RAP?](https://www.rostrum.blog/2019/07/23/can-drake-rap/)
-* [A GitHub repo template for R analysis](A GitHub repo template for R analysis)
-* [Knitting Club: R Markdown for beginners](Knitting Club: R Markdown for beginners)
+* [A GitHub repo template for R analysis](https://www.rostrum.blog/2019/06/11/r-repo-template/)
+* [Knitting Club: R Markdown for beginners](https://www.rostrum.blog/2018/09/24/knitting-club/)
 
 ---
 class: inverse, middle
