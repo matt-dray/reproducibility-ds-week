@@ -16,8 +16,6 @@ class: center, middle, inverse
 
 DfE Data Science Week, 2020-01-22
 
-`r icon::fa('slack')` [mattdray_co](https://govdatascience.slack.com)
-
 `r icon::fa('twitter')` [mattdray](https://twitter.com/mattdray)
 `r icon::fa('github')` [matt-dray](https://github.com/matt-dray)
 `r icon::fa('globe')` [rostrum.blog](https://www.rostrum.blog/)

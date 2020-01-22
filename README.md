@@ -19,3 +19,5 @@ Matt Dray from Cabinet Office will wow you with a small, medium and large thing 
 ## Access slides
 
 [Live! On the internet!](https://matt-dray.github.io/reproducibility-ds-week/)
+
+Once open, press 'P' to see presenter notes and 'F' to go fullscreen.
