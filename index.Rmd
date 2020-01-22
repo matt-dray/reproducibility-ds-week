@@ -16,6 +16,8 @@ class: center, middle, inverse
 
 DfE Data Science Week, 2020-01-22
 
+`r icon::fa('slack')` [mattdray_co](https://govdatascience.slack.com)
+
 `r icon::fa('twitter')` [mattdray](https://twitter.com/mattdray)
 `r icon::fa('github')` [matt-dray](https://github.com/matt-dray)
 `r icon::fa('globe')` [rostrum.blog](https://www.rostrum.blog/)
@@ -38,11 +40,16 @@ tl;dr `r emo::ji("sleeping")`
 ???
 * Reproducibility benefits anyone who wants to use your code or recreate work that's been done
 * If you don't care about anyone else: it will still benefit you, specifically
+* Let's say you're returning to some work after a period away, or a new publication is due
 
 ---
 class: inverse, middle, center
 
 # 'Reproducible'
+
+???
+* We should probably define 'reproducible'
+* Turns out there's more than one definition
 
 ---
 class: middle, center
@@ -52,7 +59,8 @@ class: middle, center
 From [The Turing Way](https://the-turing-way.netlify.com/introduction/introduction) by The Alan Turing Institute
 
 ???
-* I think we care about reproducing outputs we've aready created (to prove that we can relaibly recreate the outcome) and updating with fresh data (like the next quarter's data)
+* I think we care about reproducing outputs we've aready created (to prove that we can reliably recreate the outcome) and updating with fresh data (like the next quarter's data)
+* But I'm going to refer to 'reproducible' throughout
 
 ---
 class: middle
@@ -68,6 +76,7 @@ Can I recreate what you did:
 * without you present?
 
 ???
+* A simpler way of thinking about it might be to answer these questions
 * We should know all the preparatory steps
 * Maybe I don't have the same packages, maybe I'm using another OS
 * Dependency changes break things
@@ -79,6 +88,9 @@ class: center, middle
 <img src='img/trex-my-machine.gif' width=100%>
 
 You want to avoid saying this
+
+???
+* You should be confident that it can run _where_ it needs to run, _when_ it needs to run
 
 ---
 class: middle
@@ -108,13 +120,19 @@ class: middle, center
 
 ???
 * There's a grassroots movement to enact all this stuff in government already
-* #rap-collaboration on govdatascience.slack.com
-* DfE are already active: speak to CP or LS
+* Visit the website (link in slide)
+* Join #rap-collaboration on govdatascience.slack.com
+* DfE are already active: speak to Cameron R or Laura S
 
 ---
 class: middle, inverse
 
 # Three things
+
+???
+* I promised three things
+* I hope everyone learns something new, even if small
+* The things are roughly in order of how you might progress on your reproducibility journey
 
 ---
 class: middle
@@ -186,8 +204,8 @@ class: inverse, middle
 # 1. Centralise everything
 
 ???
-* Centralise your code, data, documentation, etc
-* Put the code and any other needed files in one place
+* 'Centralise' your code, data, documentation, etc
+* As in put the code and any other needed files in one place
 * Consider generalising and sharing functions
 
 ---
@@ -260,6 +278,12 @@ class: inverse, middle
 
 # 2. Report with code
 
+???
+* So you've written analytical code to read and manipulate data
+* But you're still copy-pasting into documents
+* This could go wrong: What if you meant to copy value x into three different places, but you missed one?
+* What if the data changes? Do you need to re-run everything from scratch and begin copy-pasting again?
+
 ---
 class: middle
 
@@ -279,6 +303,10 @@ class: middle, center
 <img src='img/example-rmd.jpg' width=100%>
 
 ???
+* Quick overview of an RStudio window
+* Left: an R Markdown script (.Rmd)
+* Right: viewer output after rendering the .Rmd ('knitting')
+* Code gets turned into output
 
 ---
 class: middle
@@ -298,9 +326,13 @@ Use it in R Markdown
 > The year is `r yr`.
 ```
 
-Render
+Rendered output
 
 > The year is 2020.
+
+???
+* You can write whole 'chunks' of code and also render them inline
+* Here's how an inline render might look
 
 ---
 class: middle
@@ -312,13 +344,25 @@ Use R Markdown for lots of output types:
 * [{blogdown}](https://bookdown.org/yihui/blogdown/) for blogs
 * [{flexdashboard}](https://rmarkdown.rstudio.com/flexdashboard/index.html) for dashboards
 * [{pagedown}](https://pagedown.rbind.io/) for paged HTML documents
+* [{thesisdown}](https://github.com/ismayc/thesisdown) for theses
+* [{govdown}](https://ukgovdatascience.github.io/govdown/) for websites with GOV.UK design
 
 Check out the [R Markdown book](https://bookdown.org/yihui/rmarkdown/) 
+
+???
+* {govdown} created by our very own Duncan G at GDS
 
 ---
 class: inverse, middle
 
 # 3. Manage workflows
+
+???
+* You've got reproducible steps from ingestion to outputs, but this may involve lots of files, functions and objects 
+* You need to manage the workflow itself, i.e. the dependencies between all the files, functions and objects
+* This might be something you haven't thought of before
+* You might be familiar with Make
+* This is an R-specific implementation of that approach
 
 ---
 class: middle
@@ -326,7 +370,7 @@ class: middle
 {drake} `r emo::ji("duck")`
 
 * makes your analysis pipeline reproducible
-* remembers your workflow
+* remembers your workflow for you
 * re-runs only what needs to be re-run
 
 Learn more:
@@ -409,6 +453,13 @@ plan
 ## 5 report   rmarkdown::render(knitr_in("report.Rmd"), output_file…
 ```
 
+???
+* So the steps have been recorded (in order)
+* We have targets (objects) and commands (functions that produce the targets)
+* Like a recipe
+* They'll be executed in order
+* {drake} is aware of which targets are dependent on each other
+
 ---
 class: middle
 
@@ -423,15 +474,28 @@ make(plan)
 ## target report
 ```
 
+???
+* `make()` executes everything in order
+* It prints the targets that have been created
+* If you change something, it will only recreate targets that are dependent on that change
+* So next time you `make()`, only those targets will be recreated
+* Everything else is stored in a special .drake/ cache ({drake}'s 'brain' for your project)
+* You can access these objects with `loadd()` and `readd()` if you need them
+
 ---
 class: middle
 
-Update the data target and {drake} will:
+Update the 'data' target and {drake} will:
 
 * re-run out-of-date downstream targets (black)
 * leave everything upstream alone
 
 <img src='img/drake-viz.png' width=800%>
+
+???
+* Here's a {drake} visualisation to show the dependencies in the simple example
+* Imagine we updated the data target so everything downstream is out of date
+* Re-running `make()` now will regenerate everything in black
 
 ---
 class: inverse, middle
@@ -463,9 +527,12 @@ class: middle
 
 Some things to read:
 
+* [Reproducible Analytical Pipelines](https://ukgovdatascience.github.io/rap-website/) (RAP)
+* The #rap-collaboration channel [on Slack](https://govdatascience.slack.com)
 * [Putting the R into reproducible research](https://annakrystalli.me/talks/r-in-repro-research-dc.html#1) by Anna Krystalli
 * [The Turing Way](https://the-turing-way.netlify.com/introduction/introduction.html) by The Alan Turing Institute
 * [R for Reproducible Scientific Analysis](https://swcarpentry.github.io/r-novice-gapminder/) from Software Carpentry
+
 
 ---
 class: middle
