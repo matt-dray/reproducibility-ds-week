@@ -12,7 +12,7 @@ You Won't Believe These Three Crazy Tips To Improve Reproducibility!
 
 Department for Education's Data Science Week, January 2020
 
-## Blurb: 
+## Blurb
 
 Matt Dray from Cabinet Office will wow you with a small, medium and large thing you could (should!) do right now to make your work more reproducible. Why? Improving reproducibility can help you automate your work, speed things up, reduce errors and improve trust. The talk will focus on R, but the ideas are transferable.
 
